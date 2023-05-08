@@ -1,5 +1,6 @@
 import os
 import argparse
+from pathlib import Path
 
 # add absolute src directory to python path to import other project modules
 import sys
@@ -74,10 +75,12 @@ def evaluation(data,experiment_name="try_1",scores=False):
 # y_test 2D data  (for each period an array which indicate the anomaly type of records
 # info : for each period [filename,anomaly_type] -> [[filename,anomaly_type],...,[filename,anomaly_type]]
 def get_test_data():
-    data = load_datasets_data("./preprossedData/", "./preprossedData/", ["test"])
+    dataFolder = str(Path(__file__).parent)+"/preprossedData/"
+    data = load_datasets_data(dataFolder, dataFolder, ["test"])
     return data
 def get_train_data():
-    datatrain = load_datasets_data("./preprossedData/", "./preprossedData/", ["train"])
+    dataFolder = str(Path(__file__).parent)+"/preprossedData/"
+    datatrain = load_datasets_data(dataFolder, dataFolder, ["train"])
     return datatrain
 
 

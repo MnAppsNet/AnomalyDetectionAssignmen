@@ -37,7 +37,7 @@ MODELING_SET_NAMES = [MODELING_TRAIN_NAME, MODELING_VAL_NAME, MODELING_TEST_NAME
 
 # output paths
 load_dotenv(find_dotenv())
-projectpath=str(Path(__file__).parents[1])
+projectpath=str(Path(__file__).parents[2])
 DATA_ROOT = Path(f"{projectpath}/data")
 OUTPUTS_ROOT = Path(f"{projectpath}/output")
 INTERIM_ROOT = os.path.join(OUTPUTS_ROOT, 'data', 'interim')

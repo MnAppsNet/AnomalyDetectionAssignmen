@@ -6,7 +6,7 @@ from sklearn.svm import OneClassSVM
 class mad:
 
     def __init__(self):
-        print("A dummy method")
+        pass
 
     def fit(self,trainingdata):
         # use data to model normality
