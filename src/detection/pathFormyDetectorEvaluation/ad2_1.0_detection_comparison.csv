@@ -1,0 +1,2 @@
+method,granularity,TEST_PRECISION,TEST_RECALL,TEST_F1.0_SCORE
+unique_name_1234,global,0.5,0.3333333333333333,0.4
