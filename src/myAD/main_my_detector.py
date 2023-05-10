@@ -14,5 +14,5 @@ if __name__ == '__main__':
     data['test_preds'] =model.getpreds(data["test"],th=0.95)
 
 
-    helper.evaluation(data,experiment_name="try_0000",scores=True)
+    helper.evaluation(data,experiment_name="try_0001",scores=True)
 
