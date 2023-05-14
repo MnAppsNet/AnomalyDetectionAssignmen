@@ -1,0 +1,7 @@
+src/myAD/__pycache__/
+src/utils/__pycache__/
+src/data/__pycache__/
+src/detection/__pycache__/
+src/metrics/__pycache__/
+src/visualization/__pycache__/
+myADoutput/
