@@ -10,7 +10,8 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
+            "python.venvPath": "~/anaconda3/envs/exathlon/bin/python"
         }
     ]
 }
