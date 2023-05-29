@@ -5,3 +5,5 @@ src/detection/__pycache__/
 src/metrics/__pycache__/
 src/visualization/__pycache__/
 myADoutput/
+Plots/
+myAD/Plots/
