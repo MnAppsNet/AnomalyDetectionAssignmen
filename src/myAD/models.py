@@ -40,13 +40,13 @@ class Models:
             model = IsolationForest(n_estimators=100,n_jobs=-1)
 
     #
-    # >> LocalOutlierFactor - Unsupervised
+    # >> OnceClassSVM - Unsupervised
     #
         elif method == Models.ONE_CLASS_SVM:
             model = OneClassSVM(kernel='linear')
 
     #
-    # >> LocalOutlierFactor - Semi-Supervised
+    # >> LSTM - Semi-Supervised
     #
         elif method == Models.LONG_SHORT_TERM_MEMORY:
             unsupervised = False
