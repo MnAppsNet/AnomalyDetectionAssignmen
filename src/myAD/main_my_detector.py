@@ -4,9 +4,9 @@ from models import Models
 
 # Config :
 ITERATION = "0001"
-MODEL = Models.ISOLATION_FOREST
+MODEL = Models.LONG_SHORT_TERM_MEMORY
 SCORES = True
-MULTIPLE_MODELS = True
+MULTIPLE_MODELS = False
 MULTI_MODEL_TYPE = Models.MultiModelTypes.CrossModels
 
 if __name__ == '__main__':

@@ -1,5 +1,6 @@
 import numpy as np
 from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import MinMaxScaler
 from models import Models
 from random import choice, randint, random
 
@@ -27,12 +28,14 @@ class mad:
         if self._multiModel:
             #Fit one model per trace
             for trace in x:
+                trace =  MinMaxScaler().fit_transform(trace)
                 models.append(self.getModel().fit(trace))
         else:
             #Combine traces into a big series and train the model with it
             allData = []
             for trace in x:
                 allData.extend(trace)
+            allData = MinMaxScaler().fit_transform(allData)
             models = self.getModel().fit(allData)
 
         self.model = models
@@ -52,9 +55,13 @@ class mad:
             for score in np.array(scores).T:
                 final_scores.append(sum(score)/len(score))
         elif self._multiModel and self._multiModelType == Models.MultiModelTypes.SingleModel and traceID != -1:
-            final_scores = [(-1*s+1)/2 for s in self.model[traceID].decision_function(records)]
+            final_scores = self.model[traceID].decision_function(records)
+            if min(final_scores) < 0:
+                final_scores = [(-1*s+1)/2 for s in final_scores]
         else:
-            final_scores = [(-1*s+1)/2 for s in self.model.decision_function(records)]
+            final_scores = self.model.decision_function(records)
+            if min(final_scores) < 0:
+                final_scores = [(-1*s+1)/2 for s in final_scores]
 
         return final_scores
 
@@ -63,6 +70,7 @@ class mad:
         scores2d = []
         i = 0
         for period in numpy_3d_data:
+            period = MinMaxScaler().fit_transform(period)
             #for record in period:
             scoresforPeriod = self.score(period,i)
             scores2d.append(np.array(scoresforPeriod))
